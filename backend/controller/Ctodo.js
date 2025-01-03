@@ -62,69 +62,28 @@ exports.create = async (req, res) => {
 exports.update = async (req, res) => {
   try {
     const target = req.params.id;
-    const newTitle = req.body.title || "";
-    const newDone = req.body.done || "";
-    if (newTitle != "" && newDone != "") {
-      const [result] = await Todo.update(
-        {
-          title: newTitle,
-          done: newDone,
+    const newTitle = req.body.title;
+    const newDone = req.body.done;
+    const [result] = await Todo.update(
+      {
+        title: newTitle,
+        done: newDone,
+      },
+      {
+        where: {
+          id: target,
         },
-        {
-          where: {
-            id: target,
-          },
-        }
-      );
-
+      }
+    );
+    if (Boolean(result)) {
       const final = await Todo.findOne({ where: { id: target } });
-      if (Boolean(result)) {
-        res.send(final);
-      } else {
-        res.send({ message: "Todo not found" });
-      }
-    } else if (newTitle != "") {
-      const [result] = await Todo.update(
-        {
-          title: newTitle,
-        },
-        {
-          where: {
-            id: target,
-          },
-        }
-      );
-      if (Boolean(result)) {
-        const final = await Todo.findOne({ where: { id: target } });
-        res.send(final);
-      } else {
-        res.send({ message: "Todo not found" });
-      }
-    } else if (newDone != "") {
-      const [result] = await Todo.update(
-        {
-          done: newDone,
-        },
-        {
-          where: {
-            id: target,
-          },
-        }
-      );
-      if (Boolean(result)) {
-        const final = await Todo.findOne({ where: { id: target } });
-        res.send(final);
-      } else {
-        res.send({ message: "Todo not found" });
-      }
+      res.send(final);
     } else {
-      res.send({ message: "수정된 내용이 없습니다." });
+      res.send({ message: "Todo not found" });
     }
   } catch (err) {
     console.log("err", err);
-    res
-      .status(500)
-      .send({ isSuccess: false, message: "서버 오류가 발생했습니다." });
+    res.send("서버 오류");
   }
 };
 

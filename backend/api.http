@@ -6,7 +6,7 @@ POST {{server}}/todos
 Content-Type: application/json; charset=UTF-8
 
 {
-  "title": "책 읽기",
+  "title": "밥 먹기",
   "done": false
 }
 
@@ -41,7 +41,7 @@ GET {{server}}/todos/100
 
 
 ### 특정 ID를 갖는 Todo 수정 - done 수정 (case1. 존재하는 Todo ID로 수정하는 경우)
-PATCH {{server}}/todos/1
+PATCH {{server}}/todos/4
 Content-Type: application/json; charset=UTF-8
 
 {
@@ -49,15 +49,15 @@ Content-Type: application/json; charset=UTF-8
 }
 
 ### 특정 ID를 갖는 Todo 수정 - title 수정 (case1. 존재하는 Todo ID로 수정하는 경우)
-PATCH {{server}}/todos/1
+PATCH {{server}}/todos/4
 Content-Type: application/json; charset=UTF-8
 
 {
-  "title": "배부르기"
+  "title": "젤리 먹기"
 }
 
 ### 특정 ID를 갖는 Todo 수정 - 모두 수정 (case1. 존재하는 Todo ID로 수정하는 경우)
-PATCH {{server}}/todos/1
+PATCH {{server}}/todos/4
 Content-Type: application/json; charset=UTF-8
 
 {
