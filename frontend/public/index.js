@@ -34,42 +34,22 @@ const todos = document.querySelector(".todos"); // ul 태그
 
 todoForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  // 폼이 제출되는 것을 취소! 이벤트 전달을 막는 방법
-  // 새로고침 막음
-
-  console.log("submit");
-
-  // 폼 내부의 input창 선택
   const todoInput = document.querySelector('input[name="todo"]');
   console.dir(todoInput); // 요소가 가지고 있는 데이터를 출력
   console.log(todoInput.value);
 
   const todo = todoInput.value.trim();
-
-  /*
-  <div class="todo_${count}">
-          <input type="checkbox" name = "todo"/>
-            ${element.title}
-          <button onclick="deleteTodo(${count})">x</button></div>
-  */
-
-  // (!!!!) 공백으로 들어오는 문자는 추가되지 않도록
   if (todo != "") {
-    let co = 12;
-    // let html = `
-    // <div class="todo_${co}">
-    //       <input type="checkbox" name = "todo"/>
-    //         ${todo}
-    // <button onclick="deleteTodo(${co})">x</button></div>`;
-    // 선택된 ul 태그의 자식으로 <li>todo</li> 붙이기
-    const li = document.createElement("li");
-    li.innerText = todo;
-    todos.append(li);
+    let co = Math.floor(Math.random() * 100) + 11;
+
+    document.querySelector("#container").innerHTML += `
+        <div class="todo_${co}">
+          <input type="checkbox" name = "todo"/>
+            ${todo}
+        <button onclick="deleteTodo(${co})">x</button></div>`;
   } else {
     alert("오늘의 할 일을 작성해주세요!! :)");
   }
-
-  console.log("todo : " + todo);
 
   todoInput.value = "";
 });
