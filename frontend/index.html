@@ -7,28 +7,25 @@
     <link rel="stylesheet" href="./public/index.css" />
   </head>
   <body>
-    <section id = "header">
+    <section id="header">
       <div class="inner">
-        <div class="title"><img src="./public/codingon.png"> Todo List</div>
+        <div class="title"><img src="./public/codingon.png" /> Todo List</div>
       </div>
+    </section>
 
     <main>
-      <!-- form -->
-    <h3>오늘의 할 일</h3>
-    <form id="todo-form">
-    <input type="text" name="todo">
-    <button>Add</button>
-    </form>
-    
-    <ul class="todos"></ul>
+      <form id="todo-form">
+        <input type="text" name="todo" placeholder="today's todos" />
+        <button>작성</button>
+      </form>
 
-    <div id="container"> 
-      <li></li>
-    </div>
-    
-    <ul>
+      <ul class="todos"></ul>
 
-    </ul>
+      <div id="container">
+        <li></li>
+      </div>
+
+      <ul></ul>
     </main>
     <script src="./public/index.js"></script>
   </body>
