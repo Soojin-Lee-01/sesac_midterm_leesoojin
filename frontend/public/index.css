@@ -4,16 +4,14 @@
   --main-color: #04c82f;
   --main-bg-color: #e5ffeb;
 }
-
+section {
+  background-color: #04c82f;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: #e5ffeb;
-}
-
-section {
-  background-color: #04c82f;
 }
 
 img {

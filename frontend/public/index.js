@@ -60,11 +60,3 @@ function deleteTodo(item) {
   let target = document.querySelector(".todo_" + item);
   target.remove();
 }
-
-/* 
- 4. Todo 목록 불러오기,  
- - GET https://jsonplaceholder.typicode.com/todos 요청의 응답 결과에서 맨 처음부터 10개의 원소만 잘라내어 
-   투두 목록에 초기 Todo를 표시해야 합니다.
- - HTML 문서의 DOM 내용이 완전히 로드되었을 때 실행됩니다.
- - 따로 함수를 만들어도 좋고, 함수를 만들지 않아도 좋습니다.
-*/
